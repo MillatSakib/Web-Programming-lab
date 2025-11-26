@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+  <body>
+    <h2>The XMLHttpRequest Object</h2>
 
-</head>
-<body>
-    <script src="./script.js"></script>
-</body>
+    <p id="demo">Let AJAX change this text.</p>
+
+    <button type="button" onclick="loadDoc()">Change Content</button>
+
+    <script>
+      function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open(
+          "GET",
+          "https://fakeapi.net/products?page=1&limit=10&category=electronics&price={%22min%22:100,%22max%22:1000}",
+          false
+        );
+        xhttp.send();
+        //document.getElementById("demo").innerHTML = xhttp.responseText;
+        console.log(xhttp.responseText);
+      }
+    </script>
+  </body>
 </html>
